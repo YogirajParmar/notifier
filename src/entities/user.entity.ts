@@ -1,10 +1,12 @@
 import { DataTypes } from "sequelize";
-import { DB } from "../configs/db";
+import { getSequelize } from "configs/db";
 
-export const Users = DB.getSequelize().define("users", {
+export const Users = getSequelize().define("users", {
   id: {
     type: DataTypes.INTEGER,
     allowNull: false,
+    primaryKey: true,
+    autoIncrement: true,
   },
   firstName: {
     type: DataTypes.STRING,

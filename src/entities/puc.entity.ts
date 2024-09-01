@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
-import { DB } from "../configs/db";
+import { getSequelize } from "configs/db";
 
-export const PUC = DB.getSequelize().define("pucs", {
+export const PUC = getSequelize().define("pucs", {
   vehicleNumber: {
     type: DataTypes.STRING,
     allowNull: false,
