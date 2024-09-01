@@ -1,19 +1,16 @@
 import { Router } from "express";
 import { DocumentRouter } from "@modules/documents";
-
+import { AuthRouter } from "@modules/auth";
 export default class Routes {
-  protected router: Router;
-
-  constructor() {
-    this.router = Router();
-  }
-
-  protected initializeRoutes(): void {
-  }
-
   public configure() {
-    this.initializeRoutes();
-    this.router.use("/docs", new DocumentRouter().router);
-    return this.router;
+    const router = Router();
+    router.use("/auth", new AuthRouter().router);
+    router.use("/docs", new DocumentRouter().router)
+    router.all("/*", (req, res) =>
+      res.status(404).json({
+        error: ("ERR_URL_NOT_FOUND"),
+      }),
+    );
+    return router;
   }
 }

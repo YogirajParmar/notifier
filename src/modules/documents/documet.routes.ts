@@ -1,16 +1,11 @@
-import Routes from "../../routes";
 import { DocumentController } from "./documents.controller";
+import { InjectCls, TRouter } from "@helpers";
 
-export class DocumentRouter extends Routes {
+export class DocumentRouter extends TRouter{
+  @InjectCls(DocumentController)
   private documentController: DocumentController;
 
-  constructor() {
-    super();
-    this.documentController = new DocumentController();
-    this.initializeRoutes(); 
-  }
-
-  protected initializeRoutes(): void {
+  initRoutes(): void {
     this.router.get("/puc", this.documentController.getDocument);
   }
 }

@@ -7,7 +7,7 @@ import morgan from "morgan";
 import methodOverride from "method-override";
 import "reflect-metadata";
 import Routes from "./routes";
-import {DB} from "./configs/db"
+import {getSequelize, initDB} from "./configs/db"
 import path from "path";
 dotenv.config();
 
@@ -16,14 +16,16 @@ export default class App {
 
   public init() {
     // Init DB
-    DB.init({
+    initDB({
       dialect: "sqlite",
+      database: "shivam",
+      username: "root",
+      password: "",
+      host: "localhost",
+      port: 3306,
       storage: path.join(__dirname, '../../database.sqlite'),
     });
 
-    DB.getSequelize().sync({ force: false });
-    console.info('Database & tables created!');
-    
     // Init Express
     this.app = express();
 
