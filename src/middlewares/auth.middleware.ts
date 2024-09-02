@@ -1,6 +1,6 @@
 import { TRequest, TResponse } from "@types";
 import { JwtHelper } from "@helpers";
-import { Users } from "@entities";
+import { User } from "@entities";
 
 export class AuthMiddleware {
 
@@ -11,7 +11,7 @@ export class AuthMiddleware {
       const tokenInfo: any = JwtHelper.decode(req.headers.authorization.toString().replace("Bearer ", ""));
 
       if (tokenInfo) {
-        const user: any = await Users.findOne({
+        const user: any = await User.findOne({
           where: { id: tokenInfo.id },
         });
         if (user) {

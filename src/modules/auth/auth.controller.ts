@@ -1,5 +1,5 @@
 import { TRequest, TResponse } from "@types";
-import { Users } from "@entities";
+import { User } from "@entities";
 import { JwtHelper, Bcrypt} from "@helpers";
 import { Constants } from "@configs";
 import { CreateUserDto, SignInDto } from "./dto";
@@ -9,7 +9,7 @@ export class AuthController {
   public create = async (req: TRequest<CreateUserDto>, res: TResponse) => {
     try {
       req.dto.password = await Bcrypt.hash(req.dto.password);
-      const user = await Users.create({
+      const user = await User.create({
         firstName: req.dto.firstName,
         lastName: req.dto.lastName,
         email: req.dto.email,
@@ -28,7 +28,7 @@ export class AuthController {
     try {
       const { email, password } = req.dto;
 
-      const user = await Users.findOne({
+      const user = await User.findOne({
         where: { email },
         attributes: ["email", "id", "firstName", "lastName", "password"]
       });

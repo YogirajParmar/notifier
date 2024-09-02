@@ -1,23 +1,21 @@
 import { TRequest, TResponse } from "@types";
-import { PUC, Users } from "@entities";
+import { PUC, User } from "@entities";
+import { CreatePUCDto } from "./dto";
 
 export class DocumentController {
     constructor() {};
 
-    public addDocument = async (req: TRequest, res: TResponse) => {
+    public addDocument = async (req: TRequest<CreatePUCDto>, res: TResponse) => {
         const user = req.me;
-        user.id = 1;
-        const findExistingUser = await Users.findByPk(user.id);
+        const dto = req.dto
+        const findExistingUser = await User.findByPk(user.id);
 
         if(!findExistingUser){
             return res.status(404).json({error: "User not found"});
         };
 
         const newDocument = await PUC.create({
-            vehicleNumber: req.dto.vehicleNumber,
-            vehicleType: req.dto.vehicleType,
-            issueDate: req.dto.issueDate,
-            expirationDate: req.dto.expirationDate,
+            dto,
             userId: user.id,
         });
 
@@ -26,8 +24,8 @@ export class DocumentController {
 
     public getDocument = async (req: TRequest, res: TResponse) => {
         const user = req.me;
-        const userId = 1;
-        const findExistingUser = await Users.findByPk(userId);
+
+        const findExistingUser = await User.findByPk(user.id);
 
         if(!findExistingUser){
             return res.status(404).json({error: "User not found"});

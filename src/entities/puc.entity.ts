@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import { getSequelize } from "configs/db";
+import { User } from "./user.entity"
 
 export const PUC = getSequelize().define("pucs", {
   vehicleNumber: {
@@ -26,3 +27,6 @@ export const PUC = getSequelize().define("pucs", {
   tableName: "pucs",
   timestamps: true,
 });
+
+PUC.belongsTo(User, { foreignKey: "userId"});
+User.hasMany(PUC, { foreignKey: "userId"});
