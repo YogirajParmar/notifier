@@ -1,4 +1,4 @@
-import { IsString, IsDate, IsNotEmpty } from "class-validator";
+import { IsString, IsNotEmpty, IsDateString } from "class-validator";
 
 export class CreatePUCDto {
   @IsString()
@@ -9,11 +9,11 @@ export class CreatePUCDto {
   @IsNotEmpty()
   vehicleType: string;
 
-  @IsDate()
+  @IsDateString()
   @IsNotEmpty()
   issueDate: string;
 
-  @IsDate()
+  @IsDateString()
   @IsNotEmpty()
   expirationDate: string;
 }
