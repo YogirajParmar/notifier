@@ -7,12 +7,14 @@ import morgan from "morgan";
 import methodOverride from "method-override";
 import "reflect-metadata";
 import Routes from "./routes";
-import {getSequelize, initDB} from "./configs/db"
+import { initDB } from "./configs/db";
 import path from "path";
+import NotificationCron from "./cron/notification.cron";
 dotenv.config();
 
 export default class App {
   protected app: express.Application;
+  private notificationCron = new NotificationCron();
 
   public init() {
     // Init DB
@@ -23,9 +25,10 @@ export default class App {
       password: "",
       host: "localhost",
       port: 3306,
-      storage: path.join(__dirname, '../../database.sqlite'),
+      storage: path.join(__dirname, "../../database.sqlite"),
     });
 
+    this.notificationCron.start();
     // Init Express
     this.app = express();
 
