@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
-import { getSequelize } from "configs/db";
-import { User } from "./user.entity"
+import { getSequelize } from "../configs";
+import { User } from "../entities"
 
 export const PUC = getSequelize().define("pucs", {
   vehicleNumber: {

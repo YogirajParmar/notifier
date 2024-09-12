@@ -1,6 +1,6 @@
-import { TRequest, TResponse } from "@types";
-import { JwtHelper } from "@helpers";
-import { User } from "@entities";
+import { TRequest, TResponse } from "../types";
+import { JwtHelper } from "../helpers";
+import { User } from "../entities";
 
 export class AuthMiddleware {
 

@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { DocumentRouter } from "@modules/documents";
-import { AuthRouter } from "@modules/auth";
+import { DocumentRouter } from "./modules/documents/documet.routes";
+import { AuthRouter } from "./modules/auth/auth.route";
 export default class Routes {
   public configure() {
     const router = Router();

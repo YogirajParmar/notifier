@@ -1,7 +1,7 @@
-import { TRequest, TResponse } from "@types";
-import { User } from "@entities";
-import { JwtHelper, Bcrypt} from "@helpers";
-import { Constants } from "@configs";
+import { TRequest, TResponse } from "../../types";
+import { User } from "../../entities";
+import { JwtHelper, Bcrypt} from "../../helpers";
+import { Constants } from "../../configs";
 import { CreateUserDto, SignInDto } from "./dto";
 
 export class AuthController {

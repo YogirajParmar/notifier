@@ -10,7 +10,7 @@ export class Validator {
         _me: req.me,
       }) as any;
       // eslint-disable-next-line consistent-return
-      validate(obj).then(err => {
+      validate(obj).then((err: any) => {
         if (err.length) {
           // eslint-disable-next-line @typescript-eslint/naming-convention, no-underscore-dangle
           const _error = err[0].constraints;
