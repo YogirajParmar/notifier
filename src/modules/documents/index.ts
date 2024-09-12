@@ -1,2 +1,2 @@
 export * from './documet.routes';
-// export * from './documents.controller'
+export * from './documents.controller'

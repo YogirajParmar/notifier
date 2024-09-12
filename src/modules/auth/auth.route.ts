@@ -1,5 +1,5 @@
-import { InjectCls, TRouter, Validator } from "@helpers";
-import { AuthMiddleware } from "@middlewares";
+import { InjectCls, TRouter, Validator } from "../../helpers";
+import { AuthMiddleware } from "../../middlewares";
 import { CreateUserDto, SignInDto } from "./dto";
 import { AuthController } from "./auth.controller";
 

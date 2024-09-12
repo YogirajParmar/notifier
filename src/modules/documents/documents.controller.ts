@@ -1,5 +1,5 @@
-import { TRequest, TResponse } from "@types";
-import { PUC, User } from "@entities";
+import { TRequest, TResponse } from "../../types";
+import { PUC, User } from "../../entities";
 import { CreatePUCDto } from "./dto";
 
 export class DocumentController {

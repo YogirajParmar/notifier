@@ -1,5 +1,5 @@
 import { IsBoolean, IsEmail, IsInt, IsNotEmpty, IsOptional, IsString, IsUrl, Length, Matches, MaxLength } from "class-validator";
-import { Constants } from "@configs";
+import { Constants } from "../../../configs";
 
 export class CreateUserDto {
   @IsString()

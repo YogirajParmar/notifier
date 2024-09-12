@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import { Constants } from "@configs";
+import { Constants } from "../configs";
 
 export class Bcrypt {
   public static async hash(password: string): Promise<string> {

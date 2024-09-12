@@ -1,7 +1,7 @@
 import { DocumentController } from "./documents.controller";
-import { InjectCls, TRouter } from "@helpers";
-import { AuthMiddleware } from "@middlewares";
-import { Validator } from "@helpers";
+import { InjectCls, TRouter } from "../../helpers";
+import { AuthMiddleware } from "../../middlewares";
+import { Validator } from "../../helpers";
 import { CreatePUCDto } from "./dto";
 
 export class DocumentRouter extends TRouter{

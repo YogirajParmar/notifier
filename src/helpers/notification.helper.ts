@@ -10,7 +10,7 @@ export const sendNotification = async (email: string, message: string) => {
     });
 
     const mailOptions = {
-        from: 'your_email',
+        from: 'yogirajparmar10@gmail.com',
         to: email,
         subject: 'Notification',
         text: message,
